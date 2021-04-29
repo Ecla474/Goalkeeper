@@ -91,7 +91,7 @@ void initBallon(Particle & part)
     part.m = 1.0;
     part.p.x = 10;
     part.p.y = 250;
-    part.v.x = frand(80.f, 130.f);  // C'est ici que la balle va tirer automatiquement et dans diffrents cotés
+    part.v.x = frand(80.f, 130.f);  // C'est ici que la balle va tirer automatiquement et dans diffrents cotÃ©s
     part.v.y = frand(30.f, 90.f);
 }
 
@@ -112,11 +112,11 @@ void init(Particle & part, Gardien & g)
 
 void updateParticle(Particle& part)
 {
-    const float dt = 0.07;
+    const float dt = 0.007;
     if (part.m>0)
     {
-        part.v = part.v + (dt/part.m)*part.f;     // mise à jour de la vitesse
-        part.p = part.p + dt*part.v;              // mise à jour de la position
+        part.v = part.v + (dt/part.m)*part.f;     // mise Ã  jour de la vitesse
+        part.p = part.p + dt*part.v;              // mise Ã  jour de la position
         part.f.x = 0,8;
         part.f.y = 0,5;
     }
@@ -131,7 +131,7 @@ void collision(Particle& part, Gardien &g)
 			initBallon(part);
 		}
 
-		if (part.p.y < 200) // La collision se fait a un certain niveau pour plus de réalisme
+		if (part.p.y < 200) // La collision se fait a un certain niveau pour plus de rÃ©alisme
 		{
 			part.p.y = 200;
 			part.v.y = -part.v.y;
@@ -140,13 +140,13 @@ void collision(Particle& part, Gardien &g)
 
 		if (part.p.x >= DIMW)
 		{
-            if (part.p.y <= 400 && part.p.y >= 250) // 400 et 250 des valeurs où est implanté les cages. Si la balle se trouve dans cette position, c'est qu'il y a but
+            if (part.p.y <= 400 && part.p.y >= 250) // 400 et 250 des valeurs oÃ¹ est implantÃ© les cages. Si la balle se trouve dans cette position, c'est qu'il y a but
             {
                 part.score--;
-                initBallon(part); // Apres le but, on relance la balle et on décremente un point pour le joueur. On peut avoir un score négatif
+                initBallon(part); // Apres le but, on relance la balle et on dÃ©cremente un point pour le joueur. On peut avoir un score nÃ©gatif
                 cout << "Et c'est le but !!" << endl;
             }
-            initBallon(part);  // Si le tir n'est pas cadré (ça arrive et fait volontairement), on relance la balle
+            initBallon(part);  // Si le tir n'est pas cadrÃ© (Ã§a arrive et fait volontairement), on relance la balle
 		}
 
 		if (part.p.y >= DIMW)
@@ -154,7 +154,7 @@ void collision(Particle& part, Gardien &g)
             initBallon(part);
 		}
 
-        if (part.p.x >= g.goal.p.x+180 && part.p.y >= g.goal.p.y && part.p.y < g.goal.p.y+80) // Quand le gardien arrete la balle, on incrémente d'un point le joueur
+        if (part.p.x >= g.goal.p.x+180 && part.p.y >= g.goal.p.y && part.p.y < g.goal.p.y+80) // Quand le gardien arrete la balle, on incrÃ©mente d'un point le joueur
         {
             part.score++;
             part.v.x=-part.v.x;
