@@ -18,3 +18,16 @@ J'ai mis un terrain avec une cage de foot, j'ai inclus une image de gardien en P
 
 Un système de points est mis en place pour rendre le jeu plus amusant. On gagne un point quand on arrete une balle et on en perd lorsque cette balle aterri dans les 
 cages (procédure collision ligne 125 à 163)
+
+
+######## COMPILATION ########
+
+Le jeu se compile sur CodeBlocks.
+
+
+  Pour charger le jeu, il faudra ouvrir un ficher workspace "grapic-1.2.95-<OS>/build/linux/grapic.workspace
+  
+  Sur l'onglet Projects, bien double cliquer sur le project "LIFAP1_TP3"
+  
+  Puis compilez, et vous pourrez jouer
+  
